@@ -74,3 +74,7 @@ The camera now clears the full output, and the centered HUD uses Expand scaling 
 widescreen displays. Combat feedback includes pooled droplets, colored impact/placement
 rings, generated chimes, threat health bars and hit flashes. See
 `Docs/Forester/runtime_render_fix.md` for verification and the cause of the earlier artifacts.
+
+Latest verified runtime repair: **Builds/ForesterVerified.app** (separate app identity so it
+can be distinguished from older open builds). The same fixes are in the Unity sources and
+`Assets/Forester/Scenes/VillageForestEdge.unity`.

@@ -25,3 +25,20 @@ Feedback changes:
 Verification is recorded in Verification/runtime_final_playmode.xml and
 Verification/runtime_final_build_result.json when complete. Native inspection of the
 initial repaired build at 1600x900 showed clean full-frame rendering and visible cards.
+
+Final verification:
+- Offline suite: 52 assertions passed.
+- Unity PlayMode: 7/7 passed, including full viewport/HUD bounds, feedback tint/pool cleanup,
+  camera picking/reset, full three-wave simulation, placement and provider fallback.
+- macOS build: succeeded, 0 errors, 349 nonfatal warnings.
+- Native final player at 1600x900: menu, full-screen clear, full card tray, actual mouse
+  deployment of three Watch Posts (120 -> 45 PP), live health bars, zoom/keyboard rotation,
+  wave-one completion (8 contained / 0 leaked / integrity 20, PP 100), and preparation
+  for wave two directly observed. No game exceptions found in the session log.
+- Fast synthetic clicks were intermittent; held clicks via a one-pixel drag worked.
+  This does not establish physical right-drag orbit or audible sound quality; those are
+  implemented, while camera behavior and feedback initialization have automated coverage.
+- Final player: Builds/ForesterVerified.app. Its bundle identifier/display name differ only
+  to distinguish it from older open players; project settings and game content are unchanged
+  by that packaging step. Builds/ForesterFixed.app contains the same game binaries under
+  the original application identity. Earlier intermediate builds are not the final delivery.
