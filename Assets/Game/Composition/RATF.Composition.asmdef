@@ -1,0 +1,10 @@
+{
+  "name": "RATF.Composition",
+  "references": [
+    "RATF.Domain",
+    "RATF.Application",
+    "RATF.Infrastructure",
+    "RATF.Presentation"
+  ],
+  "autoReferenced": true
+}

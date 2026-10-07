@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "actions",
+    "announcement"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "request_id": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "actions": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "unit",
+          "lane",
+          "slot"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "build",
+              "deploy"
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "foam_cannon",
+              "bolt_turret",
+              "security_robot"
+            ]
+          },
+          "lane": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3
+            ]
+          },
+          "slot": {
+            "type": "string",
+            "enum": [
+              "",
+              "L1_S1",
+              "L1_S2",
+              "L2_S1",
+              "L2_S2",
+              "L3_S1",
+              "L3_S2"
+            ]
+          }
+        }
+      }
+    },
+    "announcement": {
+      "type": "string",
+      "maxLength": 160
+    }
+  }
+}

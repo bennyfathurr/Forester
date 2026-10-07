@@ -1,0 +1,11 @@
+{
+  "name": "Forester.Composition",
+  "references": [
+    "Forester.Domain",
+    "Forester.Application",
+    "Forester.Infrastructure",
+    "Forester.Presentation",
+    "RATF.Infrastructure"
+  ],
+  "autoReferenced": true
+}

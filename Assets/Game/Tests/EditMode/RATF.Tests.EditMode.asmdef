@@ -1,0 +1,20 @@
+{
+  "name": "RATF.Tests.EditMode",
+  "references": [
+    "RATF.Domain",
+    "RATF.Application",
+    "RATF.Infrastructure"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false,
+  "includePlatforms": [
+    "Editor"
+  ],
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "nunit.framework.dll",
+    "Newtonsoft.Json.dll"
+  ]
+}

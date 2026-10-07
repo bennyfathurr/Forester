@@ -1,0 +1,7 @@
+{
+  "name": "Forester.Application",
+  "references": [
+    "Forester.Domain"
+  ],
+  "autoReferenced": true
+}

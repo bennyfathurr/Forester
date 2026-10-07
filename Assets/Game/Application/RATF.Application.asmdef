@@ -1,0 +1,8 @@
+{
+  "name": "RATF.Application",
+  "references": [
+    "RATF.Domain"
+  ],
+  "autoReferenced": true,
+  "noEngineReferences": true
+}

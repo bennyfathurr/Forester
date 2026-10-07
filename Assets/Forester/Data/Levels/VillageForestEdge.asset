@@ -1,0 +1,294 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa833e219f0424500a7d8bc57d17123f, type: 3}
+  m_Name: VillageForestEdge
+  m_EditorClassIdentifier: Forester.Presentation::Forester.Presentation.LevelDefinitionSO
+  columns: 16
+  rows: 12
+  integrity: 20
+  startingPP: 120
+  capPP: 200
+  cellSize: 2
+  origin: {x: 0, y: 0, z: 0}
+  cells:
+  - cell:
+      Column: 0
+      Row: 9
+    kind: 3
+  - cell:
+      Column: 1
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 2
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 3
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 4
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 5
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 5
+      Row: 8
+    kind: 2
+  - cell:
+      Column: 5
+      Row: 7
+    kind: 2
+  - cell:
+      Column: 5
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 6
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 7
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 8
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 9
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 10
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 10
+      Row: 5
+    kind: 2
+  - cell:
+      Column: 10
+      Row: 4
+    kind: 2
+  - cell:
+      Column: 10
+      Row: 3
+    kind: 2
+  - cell:
+      Column: 11
+      Row: 3
+    kind: 2
+  - cell:
+      Column: 12
+      Row: 3
+    kind: 2
+  - cell:
+      Column: 13
+      Row: 3
+    kind: 2
+  - cell:
+      Column: 14
+      Row: 3
+    kind: 2
+  - cell:
+      Column: 15
+      Row: 3
+    kind: 4
+  - cell:
+      Column: 0
+      Row: 2
+    kind: 3
+  - cell:
+      Column: 1
+      Row: 2
+    kind: 2
+  - cell:
+      Column: 2
+      Row: 2
+    kind: 2
+  - cell:
+      Column: 3
+      Row: 2
+    kind: 2
+  - cell:
+      Column: 4
+      Row: 2
+    kind: 2
+  - cell:
+      Column: 4
+      Row: 3
+    kind: 2
+  - cell:
+      Column: 4
+      Row: 4
+    kind: 2
+  - cell:
+      Column: 4
+      Row: 5
+    kind: 2
+  - cell:
+      Column: 4
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 2
+      Row: 8
+    kind: 1
+  - cell:
+      Column: 4
+      Row: 8
+    kind: 1
+  - cell:
+      Column: 6
+      Row: 8
+    kind: 1
+  - cell:
+      Column: 2
+      Row: 10
+    kind: 1
+  - cell:
+      Column: 6
+      Row: 10
+    kind: 1
+  - cell:
+      Column: 2
+      Row: 1
+    kind: 1
+  - cell:
+      Column: 3
+      Row: 3
+    kind: 1
+  - cell:
+      Column: 5
+      Row: 1
+    kind: 1
+  - cell:
+      Column: 6
+      Row: 3
+    kind: 1
+  - cell:
+      Column: 3
+      Row: 5
+    kind: 1
+  - cell:
+      Column: 6
+      Row: 5
+    kind: 1
+  - cell:
+      Column: 8
+      Row: 5
+    kind: 1
+  - cell:
+      Column: 8
+      Row: 7
+    kind: 1
+  - cell:
+      Column: 10
+      Row: 7
+    kind: 1
+  - cell:
+      Column: 9
+      Row: 2
+    kind: 1
+  - cell:
+      Column: 11
+      Row: 2
+    kind: 1
+  - cell:
+      Column: 12
+      Row: 4
+    kind: 1
+  - cell:
+      Column: 14
+      Row: 4
+    kind: 1
+  routes:
+  - Id: NORTH
+    SpawnId: S_NORTH
+    GoalId: G_FOREST
+    Waypoints:
+    - Column: 0
+      Row: 9
+    - Column: 5
+      Row: 9
+    - Column: 5
+      Row: 6
+    - Column: 10
+      Row: 6
+    - Column: 10
+      Row: 3
+    - Column: 15
+      Row: 3
+  - Id: SOUTH
+    SpawnId: S_SOUTH
+    GoalId: G_FOREST
+    Waypoints:
+    - Column: 0
+      Row: 2
+    - Column: 4
+      Row: 2
+    - Column: 4
+      Row: 6
+    - Column: 10
+      Row: 6
+    - Column: 10
+      Row: 3
+    - Column: 15
+      Row: 3
+  waves:
+  - Budget: 12
+    MaxCount: 12
+    Window: 24
+    Routes:
+    - NORTH
+    Enemies:
+    - emberling
+    - brush_cluster
+    Conditions: []
+  - Budget: 22
+    MaxCount: 18
+    Window: 36
+    Routes:
+    - NORTH
+    - SOUTH
+    Enemies:
+    - emberling
+    - wind_runner
+    - brush_cluster
+    Conditions: []
+  - Budget: 32
+    MaxCount: 24
+    Window: 48
+    Routes:
+    - NORTH
+    - SOUTH
+    Enemies:
+    - emberling
+    - wind_runner
+    - brush_cluster
+    Conditions:
+    - gust_front
+  awards: 3700000041000000i
+  permissions:
+    Place: 00000000i
+    Move: 00000000i
+    Sell: 00000000i
+  orthographic: 0
+  allowPanZoom: 0
+  pitch: 50
+  yaw: 45
+  fieldOfView: 40

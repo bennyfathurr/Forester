@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="26" result="Passed" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:33Z" duration="0.4521875">
+  <test-suite type="TestSuite" id="1000" name="Tower Apertus" fullname="Tower Apertus" runstate="Runnable" testcasecount="26" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:33Z" duration="0.452188" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1028" name="RATF.Tests.EditMode.dll" fullname="/private/tmp/ratf-unity-check/Library/ScriptAssemblies/RATF.Tests.EditMode.dll" runstate="Runnable" testcasecount="26" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:33Z" duration="0.446088" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="47131" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1029" name="RATF" fullname="RATF" runstate="Runnable" testcasecount="26" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:33Z" duration="0.445771" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1030" name="Tests" fullname="RATF.Tests" runstate="Runnable" testcasecount="26" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:33Z" duration="0.444663" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="DomainTests" fullname="RATF.Tests.DomainTests" classname="RATF.Tests.DomainTests" runstate="Runnable" testcasecount="26" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:33Z" duration="0.442905" total="26" passed="26" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1027" name="AttackDeadlineAndBoundary" fullname="RATF.Tests.DomainTests.AttackDeadlineAndBoundary" methodname="AttackDeadlineAndBoundary" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1074167110" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.011450" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="CapsCooldown" fullname="RATF.Tests.DomainTests.CapsCooldown" methodname="CapsCooldown" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1347181697" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.017452" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1004" name="Construction" fullname="RATF.Tests.DomainTests.Construction" methodname="Construction" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1815201585" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.000812" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="ConstructionDestroyed" fullname="RATF.Tests.DomainTests.ConstructionDestroyed" methodname="ConstructionDestroyed" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1633010366" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.001234" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="Costs" fullname="RATF.Tests.DomainTests.Costs" methodname="Costs" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1847263144" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.000470" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="Effects" fullname="RATF.Tests.DomainTests.Effects" methodname="Effects" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="241624171" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.000598" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1025" name="EmptyZeroResources" fullname="RATF.Tests.DomainTests.EmptyZeroResources" methodname="EmptyZeroResources" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="371369618" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.000292" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1026" name="FoamAndSupportRetreat" fullname="RATF.Tests.DomainTests.FoamAndSupportRetreat" methodname="FoamAndSupportRetreat" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1429001213" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.000409" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1005" name="GateAndVictory" fullname="RATF.Tests.DomainTests.GateAndVictory" methodname="GateAndVictory" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="71037273" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.000144" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="OfflineMatch" fullname="RATF.Tests.DomainTests.OfflineMatch" methodname="OfflineMatch" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="543535238" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.360008" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1010" name="PauseSnapshot" fullname="RATF.Tests.DomainTests.PauseSnapshot" methodname="PauseSnapshot" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="82457406" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.000256" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1011" name="PlanValidation" fullname="RATF.Tests.DomainTests.PlanValidation" methodname="PlanValidation" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1535417540" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:32Z" duration="0.000514" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1017" name="ProviderHttpFallback" fullname="RATF.Tests.DomainTests.ProviderHttpFallback" methodname="ProviderHttpFallback" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="619915913" result="Passed" start-time="2026-10-07 02:27:32Z" end-time="2026-10-07 02:27:33Z" duration="0.013474" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="ProviderIntentionalWait" fullname="RATF.Tests.DomainTests.ProviderIntentionalWait" methodname="ProviderIntentionalWait" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1452368152" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.001042" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="ProviderInvalid200" fullname="RATF.Tests.DomainTests.ProviderInvalid200" methodname="ProviderInvalid200" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="519664953" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.004087" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="ProviderLocalValid" fullname="RATF.Tests.DomainTests.ProviderLocalValid" methodname="ProviderLocalValid" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1629276680" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.003291" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1022" name="ProviderOccupiedAndCap" fullname="RATF.Tests.DomainTests.ProviderOccupiedAndCap" methodname="ProviderOccupiedAndCap" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="494513029" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.000729" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1014" name="ProviderParser" fullname="RATF.Tests.DomainTests.ProviderParser" methodname="ProviderParser" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1349853241" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.001659" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1023" name="ProviderPauseRestartPending" fullname="RATF.Tests.DomainTests.ProviderPauseRestartPending" methodname="ProviderPauseRestartPending" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1404524943" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.000451" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1024" name="ProviderQueueExpiry" fullname="RATF.Tests.DomainTests.ProviderQueueExpiry" methodname="ProviderQueueExpiry" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1056807163" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.000845" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="ProviderQueueRevalidate" fullname="RATF.Tests.DomainTests.ProviderQueueRevalidate" methodname="ProviderQueueRevalidate" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="327922780" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.000329" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1021" name="ProviderStaleRevision" fullname="RATF.Tests.DomainTests.ProviderStaleRevision" methodname="ProviderStaleRevision" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1876283497" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.000228" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="ProviderWrongRequestFallback" fullname="RATF.Tests.DomainTests.ProviderWrongRequestFallback" methodname="ProviderWrongRequestFallback" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1853871276" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.000202" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="Simultaneous" fullname="RATF.Tests.DomainTests.Simultaneous" methodname="Simultaneous" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1252630753" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.000093" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="TieAndSupport" fullname="RATF.Tests.DomainTests.TieAndSupport" methodname="TieAndSupport" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="1067569147" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.000191" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1012" name="TimeoutLate" fullname="RATF.Tests.DomainTests.TimeoutLate" methodname="TimeoutLate" classname="RATF.Tests.DomainTests" runstate="Runnable" seed="866198188" result="Passed" start-time="2026-10-07 02:27:33Z" end-time="2026-10-07 02:27:33Z" duration="0.000413" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/beyniz/Library/Application Support/DefaultCompany/Tower Apertus/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

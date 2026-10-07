@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="11" result="Passed" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.2704833">
+  <test-suite type="TestSuite" id="1000" name="Tower Apertus" fullname="Tower Apertus" runstate="Runnable" testcasecount="37" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.270483" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1015" name="Forester.Tests.EditMode.dll" fullname="/private/tmp/ratf-unity-check/Library/ScriptAssemblies/Forester.Tests.EditMode.dll" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.264344" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="55183" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1016" name="Forester" fullname="Forester" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.263754" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1017" name="Tests" fullname="Forester.Tests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.263473" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="AuthoringTests" fullname="Forester.Tests.AuthoringTests" classname="Forester.Tests.AuthoringTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.156320" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1002" name="AuthoredRoutesAndBuildMaskChangeAndReachGoal" fullname="Forester.Tests.AuthoringTests.AuthoredRoutesAndBuildMaskChangeAndReachGoal" methodname="AuthoredRoutesAndBuildMaskChangeAndReachGoal" classname="Forester.Tests.AuthoringTests" runstate="Runnable" seed="1093451646" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.053918" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="SixthCardThroughAuthoringCatalogAndPrefabOnly" fullname="Forester.Tests.AuthoringTests.SixthCardThroughAuthoringCatalogAndPrefabOnly" methodname="SixthCardThroughAuthoringCatalogAndPrefabOnly" classname="Forester.Tests.AuthoringTests" runstate="Runnable" seed="518960197" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.090205" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1004" name="DomainTests" fullname="Forester.Tests.DomainTests" classname="Forester.Tests.DomainTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.050602" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1005" name="OfflineRules" fullname="Forester.Tests.DomainTests.OfflineRules" methodname="OfflineRules" classname="Forester.Tests.DomainTests" runstate="Runnable" seed="1242661899" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.048518" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1006" name="ProviderTests" fullname="Forester.Tests.ProviderTests" classname="Forester.Tests.ProviderTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.055264" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1012" name="DuplicatePropertiesRejected" fullname="Forester.Tests.ProviderTests.DuplicatePropertiesRejected" methodname="DuplicatePropertiesRejected" classname="Forester.Tests.ProviderTests" runstate="Runnable" seed="969485123" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.003849" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1011" name="ExactJsonNoMarkdownExtraFieldsOrFractions" fullname="Forester.Tests.ProviderTests.ExactJsonNoMarkdownExtraFieldsOrFractions" methodname="ExactJsonNoMarkdownExtraFieldsOrFractions" classname="Forester.Tests.ProviderTests" runstate="Runnable" seed="540426468" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.006993" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="ExplicitCapabilitiesOnly" fullname="Forester.Tests.ProviderTests.ExplicitCapabilitiesOnly" methodname="ExplicitCapabilitiesOnly" classname="Forester.Tests.ProviderTests" runstate="Runnable" seed="1569183657" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.030957" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1014" name="InsecureOrNonlocalEndpointsRejected" fullname="Forester.Tests.ProviderTests.InsecureOrNonlocalEndpointsRejected" methodname="InsecureOrNonlocalEndpointsRejected" classname="Forester.Tests.ProviderTests" runstate="Runnable" seed="2068977452" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.000282" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1007" name="LocalEnvelopeAndPlainJson" fullname="Forester.Tests.ProviderTests.LocalEnvelopeAndPlainJson" methodname="LocalEnvelopeAndPlainJson" classname="Forester.Tests.ProviderTests" runstate="Runnable" seed="1822606183" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.001952" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1010" name="MissingContentRejected" fullname="Forester.Tests.ProviderTests.MissingContentRejected" methodname="MissingContentRejected" classname="Forester.Tests.ProviderTests" runstate="Runnable" seed="1093625012" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.003497" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="RefusalRejected" fullname="Forester.Tests.ProviderTests.RefusalRejected" methodname="RefusalRejected" classname="Forester.Tests.ProviderTests" runstate="Runnable" seed="1391297179" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.001651" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="RemoteOnlyObservationAndSessionToken" fullname="Forester.Tests.ProviderTests.RemoteOnlyObservationAndSessionToken" methodname="RemoteOnlyObservationAndSessionToken" classname="Forester.Tests.ProviderTests" runstate="Runnable" seed="120559955" result="Passed" start-time="2026-10-07 04:30:52Z" end-time="2026-10-07 04:30:52Z" duration="0.002926" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/beyniz/Library/Application Support/DefaultCompany/Tower Apertus/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

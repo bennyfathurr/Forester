@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7bd63a460f2450593b5a181bd78f0a, type: 3}
+  m_Name: Apertus
+  m_EditorClassIdentifier: Forester.Presentation::Forester.Presentation.ProviderProfileSO
+  settings:
+    Mode: 0
+    Endpoint: http://127.0.0.1:8000/v1/chat/completions
+    Model: swiss-ai/Apertus-8B-Instruct-2509
+    Timeout: 8
+    VerifiedSchemaOutput: 0
+    SendTemperature: 0
+    SendMaxTokens: 0
+  planSchema: {fileID: 4900000, guid: 164ed02d1890f4930b06cdd379f0f894, type: 3}

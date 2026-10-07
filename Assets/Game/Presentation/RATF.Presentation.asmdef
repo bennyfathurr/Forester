@@ -1,0 +1,9 @@
+{
+  "name": "RATF.Presentation",
+  "references": [
+    "RATF.Domain",
+    "RATF.Application",
+    "Unity.InputSystem"
+  ],
+  "autoReferenced": true
+}

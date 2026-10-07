@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6ec8f40cd5a408cb800173378e0354, type: 3}
+  m_Name: VisualCatalog
+  m_EditorClassIdentifier: RATF.Presentation::RATF.Presentation.VisualCatalogSO
+  bindings:
+  - id: villager_emak
+    status: Mapped original FBX; static
+    prefab: {fileID: 4540027990233984098, guid: 1b0e640bcdf934c7dbeaec9a2b0335a5, type: 3}
+    portrait: {fileID: 2800000, guid: afb5ef86f3c5643caaf2fbabb581dad5, type: 3}
+    attackAudio: {fileID: 0}
+    idleClip: 
+    moveClip: 
+    attackClip: 
+    retreatClip: 
+  - id: villager_bapak
+    status: Mapped original FBX; static
+    prefab: {fileID: 7856164573850617541, guid: ba97eb752adb1428c8a75d260fcdfc33, type: 3}
+    portrait: {fileID: 2800000, guid: 91612aa0461a0419c9965ec375e1e173, type: 3}
+    attackAudio: {fileID: 0}
+    idleClip: 
+    moveClip: 
+    attackClip: 
+    retreatClip: 
+  - id: villager_anak
+    status: Scaled adult model supporter; static
+    prefab: {fileID: 1417000299267621683, guid: 100952915e3f34c7e8e38dd27ccf69d3, type: 3}
+    portrait: {fileID: 2800000, guid: 9290619cda3ca46549b6fa10b59734f2, type: 3}
+    attackAudio: {fileID: 0}
+    idleClip: 
+    moveClip: 
+    attackClip: 
+    retreatClip: 
+  - id: security_robot
+    status: UFO security drone stand-in; static
+    prefab: {fileID: 4800689621365858905, guid: 4afaaa705926e4018888aa29abc642fe, type: 3}
+    portrait: {fileID: 2800000, guid: 24735d049ce1d4f8abe23b454e39cecb, type: 3}
+    attackAudio: {fileID: 0}
+    idleClip: 
+    moveClip: 
+    attackClip: 
+    retreatClip: 
+  - id: foam_cannon
+    status: Mapped original FBX; static
+    prefab: {fileID: 2030811392139024536, guid: a719fba337a044c539816a147b2e0f10, type: 3}
+    portrait: {fileID: 2800000, guid: 35bf21d8aedc64002b5fe3ff003b9339, type: 3}
+    attackAudio: {fileID: 0}
+    idleClip: 
+    moveClip: 
+    attackClip: 
+    retreatClip: 
+  - id: bolt_turret
+    status: Mapped original FBX; static
+    prefab: {fileID: 6650115929515170801, guid: 66fe94ad56b60453288c48e7e2f9c1c7, type: 3}
+    portrait: {fileID: 2800000, guid: d2345bbcd816948ddabded20c65b7dff, type: 3}
+    attackAudio: {fileID: 0}
+    idleClip: 
+    moveClip: 
+    attackClip: 
+    retreatClip: 
+  - id: gate
+    status: Mapped original FBX; static
+    prefab: {fileID: 139511537154498831, guid: ca1c259b2941e4e00a8d8705130baf5e, type: 3}
+    portrait: {fileID: 2800000, guid: d20af3539de3e468f8f5a0cf3065b865, type: 3}
+    attackAudio: {fileID: 0}
+    idleClip: 
+    moveClip: 
+    attackClip: 
+    retreatClip: 
+  - id: refinery
+    status: Tower refinery stand-in; static
+    prefab: {fileID: 5806224840347472529, guid: 2eb3e3fbc641b41438f766c0e216eb49, type: 3}
+    portrait: {fileID: 2800000, guid: fe5cdf28b6f444d069964325f3b96754, type: 3}
+    attackAudio: {fileID: 0}
+    idleClip: 
+    moveClip: 
+    attackClip: 
+    retreatClip: 

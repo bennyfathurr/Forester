@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e53a3c71bb634bc8b78242dc87ae76a, type: 3}
+  m_Name: VisualCatalog
+  m_EditorClassIdentifier: Forester.Presentation::Forester.Presentation.VisualCatalogSO
+  bindings:
+  - id: water_team
+    prefab: {fileID: 8898143073608331744, guid: 0cdcc8dbfa3e5445e8ee56f57c3ce0e9, type: 3}
+    portrait: {fileID: 2800000, guid: afb5ef86f3c5643caaf2fbabb581dad5, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy
+  - id: watch_post
+    prefab: {fileID: 8683591474930642035, guid: 72ec856afc49d45e78d0a243f7afafbb, type: 3}
+    portrait: {fileID: 2800000, guid: d2345bbcd816948ddabded20c65b7dff, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy
+  - id: foam_station
+    prefab: {fileID: 8027972787309058041, guid: 08b607ee78bd8451ea68efc499da55dc, type: 3}
+    portrait: {fileID: 2800000, guid: 35bf21d8aedc64002b5fe3ff003b9339, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy
+  - id: warga
+    prefab: {fileID: 6302457529103671701, guid: 6253a3bd613e54c3899b7d93a0b88126, type: 3}
+    portrait: {fileID: 2800000, guid: 91612aa0461a0419c9965ec375e1e173, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy
+  - id: water_tank
+    prefab: {fileID: 31749627003435627, guid: 7b320b9b9c6d949be9b886f8e7dc8737, type: 3}
+    portrait: {fileID: 2800000, guid: fe5cdf28b6f444d069964325f3b96754, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy
+  - id: emberling
+    prefab: {fileID: 3751235024143811008, guid: f51b8371fff7c4b5ca634522803c66aa, type: 3}
+    portrait: {fileID: 2800000, guid: 24735d049ce1d4f8abe23b454e39cecb, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy
+  - id: wind_runner
+    prefab: {fileID: 6861415205898574264, guid: b44fe6cf2c82b482dac9f327df455355, type: 3}
+    portrait: {fileID: 2800000, guid: a40ebb6a533524b2bb47a8d32005c9cf, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy
+  - id: brush_cluster
+    prefab: {fileID: 4342558272531685808, guid: 757154e7b9f7d40528fe51a4369685d0, type: 3}
+    portrait: {fileID: 2800000, guid: 9e8f022d91ed54e7984d759bdcca2fa2, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy
+  - id: forest_goal
+    prefab: {fileID: 4114220938687288934, guid: 08394deb585454cc9b135241b7b1647f, type: 3}
+    portrait: {fileID: 2800000, guid: d20af3539de3e468f8f5a0cf3065b865, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy
+  - id: tree
+    prefab: {fileID: 4694646886135484564, guid: 71836b13eda834c2c80907a69d291984, type: 3}
+    portrait: {fileID: 2800000, guid: 3ff89f0efcf86498290655184f7f7603, type: 3}
+    audio: {fileID: 0}
+    idle: {fileID: 0}
+    fire: {fileID: 0}
+    contained: {fileID: 0}
+    mappingNote: Original static model; gameplay proxy

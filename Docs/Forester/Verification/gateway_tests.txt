@@ -1,0 +1,40 @@
+test_http_fake_contract_and_unauthorized (test_gateway.HttpTests.test_http_fake_contract_and_unauthorized) ... ERROR
+test_auth (test_gateway.Tests.test_auth) ... ok
+test_bad_provider_whole_plan (test_gateway.Tests.test_bad_provider_whole_plan) ... ok
+test_binding (test_gateway.Tests.test_binding) ... ok
+test_budget (test_gateway.Tests.test_budget) ... ok
+test_condition (test_gateway.Tests.test_condition) ... ok
+test_density (test_gateway.Tests.test_density) ... ok
+test_duplicates (test_gateway.Tests.test_duplicates) ... ok
+test_empty_plan (test_gateway.Tests.test_empty_plan) ... ok
+test_extra_observation (test_gateway.Tests.test_extra_observation) ... ok
+test_extra_plan (test_gateway.Tests.test_extra_plan) ... ok
+test_fake_plan (test_gateway.Tests.test_fake_plan) ... ok
+test_host_allowlist (test_gateway.Tests.test_host_allowlist) ... ok
+test_integer_bounds (test_gateway.Tests.test_integer_bounds) ... ok
+test_no_substitution (test_gateway.Tests.test_no_substitution) ... ok
+test_nonfinite (test_gateway.Tests.test_nonfinite) ... ok
+test_rate (test_gateway.Tests.test_rate) ... ok
+test_window (test_gateway.Tests.test_window) ... ok
+
+======================================================================
+ERROR: test_http_fake_contract_and_unauthorized (test_gateway.HttpTests.test_http_fake_contract_and_unauthorized)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/beyniz/Development/GameDevelopment/Unity/Projects/Tower Apertus/ForesterGateway/test_gateway.py", line 63, in test_http_fake_contract_and_unauthorized
+    service=server.ThreadingHTTPServer(('127.0.0.1',0),server.Handler)
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socketserver.py", line 457, in __init__
+    self.server_bind()
+    ~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socketserver.py", line 478, in server_bind
+    self.socket.bind(self.server_address)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.003s
+
+FAILED (errors=1)

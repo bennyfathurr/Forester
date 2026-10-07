@@ -1,0 +1,9 @@
+# Forester known issues and scope
+
+- The default local Apertus server is unreachable. No installed Apertus model, real hosted inference, serving chat template, schema capability, hardware latency or memory benchmark has been verified. Adapter/fake-provider verification is distinct from real inference.
+- The supplied Kenney models are static proxies. Water Team/Community Response use characters; Watch/Foam use turret/cannon models; Water Tank uses a tower; hazards use UFO models. No dedicated water/foam/heat animation or audio is supplied. These are stylized gameplay hazards, not physical wildfire behavior or real-life response guidance.
+- The owned gateway is a minimal authenticated loopback service with global rate limiting and deployment-configured session token. Production TLS proxy, account-specific token issuance, monitoring and hosting have not been deployed. Its authoritative server validator is tuned to the supplied three-wave initial level; custom level/server rules must be changed together. Unity always validates against its own authored level as well.
+- The level editor authors ordered complete polylines. Shared/branching map geometry is represented by additional complete route IDs. It does not implement runtime branch selection or maze/path carving.
+- Camera framing and orthographic mode are configurable. Initial camera is fixed; pan/zoom remains disabled. Presentation uses simple Canvas panels, static portraits, generated path tiles and sparse trees, not a reproduction of the supplied commercial reference image.
+- Gameplay build uses the preserved project's product name in the native window title (Tower Apertus). The latest delivery application filename is ForesterFinal.app. The earlier Forester.app is retained while its player session runs.
+- Outcome statistics count purchase spending and placements, including later sold placements. Sell refunds are recorded in PP; they are not deducted from the cumulative purchase metric.

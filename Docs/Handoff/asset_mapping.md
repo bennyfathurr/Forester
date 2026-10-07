@@ -1,0 +1,16 @@
+# Asset mapping
+
+3D presentation adaptation: miniature models in an orthographic X/Z lane board. Robot uses a supplied UFO as a clearly labeled security-drone stand-in; refinery uses a tower as a labeled refinery stand-in. Child uses a scaled male-b model, not a dedicated child asset. No real animations, portraits or audio clips assumed. Static/tween fallback is explicit. Originals remain unchanged.
+
+| Definition | Original FBX | GUID | Wrapper | Portrait / animations | Status |
+|---|---|---|---|---|---|
+| villager_emak | Assets/3D/kenney_mini-characters/Models/FBX format/character-female-a.fbx | 766cc939465d340c08b15f942ad4a09c | Assets/Game/Prefabs/Views/villager_emak.prefab | none / static plus procedural feedback | mapped; import/catalog validated; rendered in prior windowed smoke check |
+| villager_bapak | Assets/3D/kenney_mini-characters/Models/FBX format/character-male-a.fbx | 9760f0005974b42e88e99618df8fac66 | Assets/Game/Prefabs/Views/villager_bapak.prefab | none / static plus procedural feedback | mapped; import/catalog validated; rendered in prior windowed smoke check |
+| villager_anak | Assets/3D/kenney_mini-characters/Models/FBX format/character-male-b.fbx | 1862f73be2a984340a4ffa2af670d4ee | Assets/Game/Prefabs/Views/villager_anak.prefab | none / static plus procedural feedback | mapped; import/catalog validated; rendered in prior windowed smoke check |
+| security_robot | Assets/3D/kenney_tower-defense-kit/Models/FBX format/enemy-ufo-a.fbx | e4afd8069df07414ebcc6b42ad812995 | Assets/Game/Prefabs/Views/security_robot.prefab | none / static plus procedural feedback | mapped; import/catalog validated; rendered in prior windowed smoke check |
+| foam_cannon | Assets/3D/kenney_tower-defense-kit/Models/FBX format/weapon-cannon.fbx | 9d7f8e66a1f3c4d50a4b4a4d0c608b18 | Assets/Game/Prefabs/Views/foam_cannon.prefab | none / static plus procedural feedback | mapped; import/catalog validated; rendered in prior windowed smoke check |
+| bolt_turret | Assets/3D/kenney_tower-defense-kit/Models/FBX format/weapon-turret.fbx | 49a47f2e50f79467a86d9432809a76c8 | Assets/Game/Prefabs/Views/bolt_turret.prefab | none / static plus procedural feedback | mapped; import/catalog validated; rendered in prior windowed smoke check |
+| gate | Assets/3D/kenney_tower-defense-kit/Models/FBX format/wood-structure.fbx | 1c8a4ce2b3ab54bf1a666abd82cd2912 | Assets/Game/Prefabs/Views/gate.prefab | none / static plus procedural feedback | mapped; import/catalog validated; rendered in prior windowed smoke check |
+| refinery | Assets/3D/kenney_tower-defense-kit/Models/FBX format/tower-square-build-f.fbx | 97195d0b693bf445880f5a19865b5fbc | Assets/Game/Prefabs/Views/refinery.prefab | none / static plus procedural feedback | mapped; import/catalog validated; rendered in prior windowed smoke check |
+
+Generated catalog and eight wrapper prefabs verified in Unity. Villager portraits bind the supplied Previews/character-female-a.png, character-male-a.png and character-male-b.png. Other portraits/animation/audio bindings remain absent and explicitly degrade to static/procedural presentation. Selection-marker correction is compiled in the final build; its final render check was skipped after Mac lock.

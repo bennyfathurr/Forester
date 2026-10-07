@@ -1,0 +1,14 @@
+{
+  "name": "RATF.Tests.PlayMode",
+  "references": [
+    "RATF.Domain",
+    "RATF.Application",
+    "RATF.Presentation",
+    "RATF.Composition",
+    "Unity.InputSystem"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "autoReferenced": false
+}

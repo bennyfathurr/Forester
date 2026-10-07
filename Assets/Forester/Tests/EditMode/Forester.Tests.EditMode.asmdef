@@ -1,0 +1,24 @@
+{
+  "name": "Forester.Tests.EditMode",
+  "references": [
+    "Forester.Domain",
+    "Forester.Application",
+    "Forester.Infrastructure",
+    "Forester.Presentation",
+    "Forester.Composition",
+    "Forester.Editor",
+    "RATF.Infrastructure",
+    "UnityEngine.UI"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "nunit.framework.dll",
+    "Newtonsoft.Json.dll"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

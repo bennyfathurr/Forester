@@ -1,0 +1,12 @@
+{
+  "name": "RATF.Infrastructure",
+  "references": [
+    "RATF.Domain",
+    "RATF.Application"
+  ],
+  "autoReferenced": true,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "Newtonsoft.Json.dll"
+  ]
+}

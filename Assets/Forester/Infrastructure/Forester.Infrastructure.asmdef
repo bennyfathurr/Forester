@@ -1,0 +1,13 @@
+{
+  "name": "Forester.Infrastructure",
+  "references": [
+    "Forester.Domain",
+    "Forester.Application",
+    "RATF.Infrastructure"
+  ],
+  "autoReferenced": true,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "Newtonsoft.Json.dll"
+  ]
+}

@@ -1,0 +1,1 @@
+{"name":"Forester.Tests.PlayMode","references":["Forester.Domain","Forester.Application","Forester.Presentation","Forester.Composition","Unity.InputSystem","UnityEngine.UI"],"overrideReferences":true,"precompiledReferences":["nunit.framework.dll"],"optionalUnityReferences":["TestAssemblies"]}

@@ -1,0 +1,15 @@
+{
+  "name": "Forester.Editor",
+  "references": [
+    "Forester.Domain",
+    "Forester.Application",
+    "Forester.Presentation",
+    "Forester.Composition",
+    "UnityEngine.UI",
+    "Unity.InputSystem"
+  ],
+  "autoReferenced": true,
+  "includePlatforms": [
+    "Editor"
+  ]
+}

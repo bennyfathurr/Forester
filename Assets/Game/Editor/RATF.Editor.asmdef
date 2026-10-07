@@ -1,0 +1,14 @@
+{
+  "name": "RATF.Editor",
+  "references": [
+    "RATF.Domain",
+    "RATF.Application",
+    "RATF.Infrastructure",
+    "RATF.Presentation",
+    "RATF.Composition"
+  ],
+  "autoReferenced": true,
+  "includePlatforms": [
+    "Editor"
+  ]
+}
