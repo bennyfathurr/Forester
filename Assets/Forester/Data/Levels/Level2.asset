@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa833e219f0424500a7d8bc57d17123f, type: 3}
-  m_Name: VillageForestEdge
+  m_Name: Level2
   m_EditorClassIdentifier: Forester.Presentation::Forester.Presentation.LevelDefinitionSO
-  columns: 16
+  columns: 20
   rows: 12
   integrity: 20
   startingPP: 120
@@ -21,79 +21,47 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   cells:
   - cell:
-      Column: 0
-      Row: 9
+      Column: 4
+      Row: 6
     kind: 3
   - cell:
-      Column: 1
-      Row: 9
-    kind: 2
-  - cell:
-      Column: 2
-      Row: 9
-    kind: 2
-  - cell:
-      Column: 3
-      Row: 9
-    kind: 2
-  - cell:
       Column: 4
-      Row: 9
-    kind: 2
-  - cell:
-      Column: 5
-      Row: 9
-    kind: 2
-  - cell:
-      Column: 5
-      Row: 8
-    kind: 2
-  - cell:
-      Column: 5
-      Row: 7
-    kind: 2
-  - cell:
-      Column: 5
-      Row: 6
-    kind: 2
-  - cell:
-      Column: 6
-      Row: 6
-    kind: 2
-  - cell:
-      Column: 7
-      Row: 6
-    kind: 2
-  - cell:
-      Column: 8
-      Row: 6
-    kind: 2
-  - cell:
-      Column: 9
-      Row: 6
-    kind: 2
-  - cell:
-      Column: 10
-      Row: 6
-    kind: 2
-  - cell:
-      Column: 10
       Row: 5
     kind: 2
   - cell:
-      Column: 10
+      Column: 4
       Row: 4
     kind: 2
   - cell:
-      Column: 10
+      Column: 4
       Row: 3
     kind: 2
   - cell:
-      Column: 11
-      Row: 3
+      Column: 4
+      Row: 2
     kind: 2
   - cell:
-      Column: 12
+      Column: 3
+      Row: 2
+    kind: 2
+  - cell:
+      Column: 2
+      Row: 2
+    kind: 2
+  - cell:
+      Column: 1
+      Row: 2
+    kind: 2
+  - cell:
+      Column: 0
+      Row: 2
+    kind: 3
+  - cell:
+      Column: 15
+      Row: 3
+    kind: 4
+  - cell:
+      Column: 14
       Row: 3
     kind: 2
   - cell:
@@ -101,49 +69,81 @@ MonoBehaviour:
       Row: 3
     kind: 2
   - cell:
-      Column: 14
+      Column: 12
       Row: 3
     kind: 2
   - cell:
-      Column: 15
-      Row: 3
-    kind: 4
-  - cell:
-      Column: 0
-      Row: 2
-    kind: 3
-  - cell:
-      Column: 1
-      Row: 2
-    kind: 2
-  - cell:
-      Column: 2
-      Row: 2
-    kind: 2
-  - cell:
-      Column: 3
-      Row: 2
-    kind: 2
-  - cell:
-      Column: 4
-      Row: 2
-    kind: 2
-  - cell:
-      Column: 4
+      Column: 11
       Row: 3
     kind: 2
   - cell:
-      Column: 4
+      Column: 10
+      Row: 3
+    kind: 2
+  - cell:
+      Column: 10
       Row: 4
     kind: 2
   - cell:
-      Column: 4
+      Column: 10
       Row: 5
     kind: 2
   - cell:
-      Column: 4
+      Column: 10
       Row: 6
     kind: 2
+  - cell:
+      Column: 9
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 8
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 7
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 6
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 5
+      Row: 6
+    kind: 2
+  - cell:
+      Column: 5
+      Row: 7
+    kind: 2
+  - cell:
+      Column: 5
+      Row: 8
+    kind: 2
+  - cell:
+      Column: 5
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 4
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 3
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 2
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 1
+      Row: 9
+    kind: 2
+  - cell:
+      Column: 0
+      Row: 9
+    kind: 3
   - cell:
       Column: 2
       Row: 8

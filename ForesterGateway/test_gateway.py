@@ -5,6 +5,53 @@ import server
 def obs(wave=1):return dict(schema_version=1,match_id='test',epoch=1,request_id='test-wave',wave_index=wave,integrity=20,pp=120,board=dict(columns=16,rows=12,cell_size=2),defenders=[],route_summaries=[],previous_outcomes=[],legal_spawn_routes=[dict(spawn_id='S_NORTH',route_id='NORTH',goal_id='G_FOREST')],enemy_catalog=[],allowed_conditions=[],wave_bounds=dict(budget=12,max_count=12,schedule_window_seconds=24))
 class Tests(unittest.TestCase):
  def setUp(self):self.provider=server.Provider();self.gateway=server.Gateway(self.provider,'test-only')
+ def test_upstream_http_errors_are_actionable_and_do_not_leak_body(self):
+  import urllib.error,io
+  with patch.dict(os.environ,{'FORESTER_PROVIDER':'apertus_compatible','APERTUS_ENDPOINT':'https://api.inference.cscs.ch/v1/chat/completions','APERTUS_ALLOWED_HOSTS':'api.inference.cscs.ch'}):
+   provider=server.Provider()
+  for status,label in [(401,'API key rejected'),(403,'access denied'),(404,'not found'),(429,'quota'),(400,'rejected'),(503,'service error')]:
+   error=urllib.error.HTTPError(provider.endpoint,status,'error',{},io.BytesIO(b'secret-provider-body'))
+   with self.subTest(status=status),patch('server.urllib.request.OpenerDirector.open',side_effect=error):
+    with self.assertRaises(server.GatewayError) as caught:provider.decide(obs())
+    self.assertEqual(caught.exception.status,502)
+    self.assertIn(label,caught.exception.reason)
+    self.assertIn(str(status),caught.exception.reason)
+    self.assertNotIn('secret',caught.exception.reason)
+ def test_live_prompt_contains_wave_constraints_without_sample_wave(self):
+  import io
+  with patch.dict(os.environ,{'FORESTER_PROVIDER':'apertus_compatible','APERTUS_ENDPOINT':'https://api.inference.cscs.ch/v1/chat/completions','APERTUS_ALLOWED_HOSTS':'api.inference.cscs.ch'}):provider=server.Provider()
+  for wave in (1,2,3):
+   o=obs(wave);answer=server.Provider().decide(o)
+   response=io.BytesIO(json.dumps({'choices':[{'message':{'content':json.dumps(answer)}}]}).encode())
+   with patch('server.urllib.request.OpenerDirector.open',return_value=response) as mocked:provider.decide(o)
+   request=mocked.call_args.args[0];body=json.loads(request.data)
+   prompt=body['messages'][0]['content']
+   self.assertIn('Service-owned legality constraints',prompt)
+   self.assertIn('"budget": '+str([12,22,32][wave-1]),prompt)
+   self.assertNotIn('Northern pressure: steady opening wave',prompt)
+   self.assertEqual(json.loads(body['messages'][1]['content'])['wave_index'],wave)
+ def test_schedule_failure_reports_exact_group_and_time(self):
+  p=self.provider.decide(obs());p['groups'].append(copy.deepcopy(p['groups'][0]))
+  with self.assertRaisesRegex(ValueError,'group 1: duplicate spawn on S_NORTH at 0s'):server.plan(p,obs())
+  p=self.provider.decide(obs());p['groups'][0]['start_seconds']=24
+  with self.assertRaisesRegex(ValueError,'spawn at 26s exceeds window 24s'):server.plan(p,obs())
+ def test_one_correction_preserves_validation_and_time_budget(self):
+  provider=server.Provider();provider.mode='apertus_compatible'
+  valid=self.provider.decide(obs());bad=copy.deepcopy(valid);bad['groups'].append(copy.deepcopy(bad['groups'][0]))
+  with patch.object(provider,'decide',side_effect=[bad,valid]) as decide:
+   result=server.Gateway(provider,'test-only').handle('Bearer test-only',json.dumps(obs()).encode())
+   self.assertEqual(result,valid);self.assertEqual(decide.call_count,2)
+   self.assertLessEqual(decide.call_args.kwargs['timeout'],provider.timeout)
+   self.assertIn('duplicate spawn',decide.call_args.kwargs['correction']['reason'])
+  with patch.object(provider,'decide',side_effect=[bad,bad]) as decide:
+   with self.assertRaises(server.GatewayError):server.Gateway(provider,'test-only').handle('Bearer test-only',json.dumps(obs()).encode())
+   self.assertEqual(decide.call_count,2)
+ def test_no_retry_after_time_budget_exhausted(self):
+  provider=server.Provider();provider.mode='apertus_compatible'
+  bad=self.provider.decide(obs());bad['groups'][0]['start_seconds']=24
+  with patch.object(provider,'decide',return_value=bad) as decide,patch('server.time.monotonic',side_effect=[0,0,7,7]):
+   with self.assertRaises(server.GatewayError):server.Gateway(provider,'test-only').handle('Bearer test-only',json.dumps(obs()).encode())
+   self.assertEqual(decide.call_count,1)
  def test_fake_plan(self):self.assertEqual(self.gateway.handle('Bearer test-only',json.dumps(obs()).encode())['groups'][0]['count'],4)
  def test_auth(self):
   with self.assertRaises(server.GatewayError) as e:self.gateway.handle('',b'{}')
@@ -56,6 +103,7 @@ class Tests(unittest.TestCase):
   gateway=server.Gateway(Bad(),'test-only')
   with self.assertRaises(server.GatewayError) as e:gateway.handle('Bearer test-only',json.dumps(obs()).encode())
   self.assertEqual(e.exception.status,502)
+  self.assertIn('missing field',e.exception.reason)
 
 class HttpTests(unittest.TestCase):
  def test_http_fake_contract_and_unauthorized(self):

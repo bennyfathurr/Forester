@@ -299,7 +299,7 @@ namespace Forester.Presentation {
                 if(!ct.IsCancellationRequested&&this)done(result);
             }
             catch(Exception e) {
-                if(!ct.IsCancellationRequested&&this)done("Probe failed: "+e.GetType().Name);
+                if(!ct.IsCancellationRequested&&this)done("Probe failed: "+(e is InvalidOperationException || e is TimeoutException ? e.Message : e.GetType().Name));
             }
         }
     }

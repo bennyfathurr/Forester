@@ -249,6 +249,18 @@ namespace Forester.Editor {
             root.Validate();
             Debug.Log("FORESTER_VALIDATION_PASS");
         }
+        [MenuItem("Forester/Build web player (preserve authored scene)")]
+        public static void BuildWeb() {
+            Validate();
+            Directory.CreateDirectory("Web/player");
+            // Explicit target and scene: the designer's project settings/profile stay untouched.
+            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
+                scenes=new[]{ScenePath},locationPathName="Web/player",target=BuildTarget.WebGL,options=BuildOptions.None
+            });
+            File.WriteAllText("Web/build_result.json","{\"result\":\""+report.summary.result+"\",\"errors\":"+report.summary.totalErrors+",\"warnings\":"+report.summary.totalWarnings+"}");
+            if(report.summary.result!=UnityEditor.Build.Reporting.BuildResult.Succeeded)throw new Exception("Forester web build failed");
+            Debug.Log("FORESTER_WEB_BUILD_PASS");
+        }
         public static void BuildEnhancedStandalone() {
             Rebuild();
             BuildStandalone();

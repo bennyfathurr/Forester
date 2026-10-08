@@ -22,26 +22,26 @@ def strict_json(raw):
         return result
     return json.loads(raw, object_pairs_hook=unique, parse_constant=lambda _: (_ for _ in ()).throw(ValueError('nonfinite')))
 
-def shape(value, schema):
+def shape(value, schema, path="plan") :
     types = {'object': dict, 'array': list, 'string': str, 'integer': int}
     kind = schema.get('type')
     if kind and type(value) is not types[kind]:
-        raise ValueError('wrong JSON type')
+        raise ValueError(path+': wrong JSON type')
     if 'enum' in schema and value not in schema['enum']:
-        raise ValueError('invalid enum')
+        raise ValueError(path+': invalid enum')
     if kind == 'object':
         if set(schema.get('required', [])) - value.keys():
-            raise ValueError('missing field')
+            raise ValueError(path+': missing field')
         if not schema.get('additionalProperties', True) and value.keys() - schema['properties'].keys():
-            raise ValueError('extra field')
+            raise ValueError(path+': extra field')
         for k, v in value.items():
             if k in schema.get('properties', {}):
-                shape(v, schema['properties'][k])
+                shape(v, schema['properties'][k],path+'.'+k)
     if kind == 'array':
         if len(value) > schema.get('maxItems', 1000):
             raise ValueError('too many items')
-        for item in value:
-            shape(item, schema['items'])
+        for index,item in enumerate(value):
+            shape(item, schema['items'],path+'['+str(index)+']')
     if kind == 'integer' and not schema.get('minimum', value) <= value <= schema.get('maximum', value):
         raise ValueError('integer bounds')
     if kind == 'array' and len(value) < schema.get('minItems', 0):
@@ -72,11 +72,12 @@ def plan(p,o):
     if p['request_id']!=o['request_id'] or p['wave_index']!=o['wave_index']:raise ValueError('binding mismatch')
     wave=o['wave_index'];budget=[12,22,32][wave-1];max_count=[12,18,24][wave-1];window=[24,36,48][wave-1]
     cost=count=0;density=set()
-    for g in p['groups']:
+    for group_index,g in enumerate(p['groups']):
         if g['spawn_id']!='S_'+g['route_id'] or wave==1 and (g['route_id']!='NORTH' or g['enemy_id']=='wind_runner'):raise ValueError('wave allowlist')
         for i in range(g['count']):
             second=g['start_seconds']+i*g['interval_seconds'];key=(g['spawn_id'],second)
-            if second>window or key in density:raise ValueError('schedule/density')
+            if second>window:raise ValueError('group '+str(group_index)+': spawn at '+str(second)+'s exceeds window '+str(window)+'s')
+            if key in density:raise ValueError('group '+str(group_index)+': duplicate spawn on '+g['spawn_id']+' at '+str(second)+'s')
             density.add(key);count+=1;cost+={'emberling':1,'wind_runner':2,'brush_cluster':3}[g['enemy_id']]
     if p['conditions']:
         if wave!=3:raise ValueError('condition allowlist')
@@ -88,7 +89,7 @@ def plan(p,o):
 class Provider:
     def __init__(self):
         self.mode=os.environ.get('FORESTER_PROVIDER','fake')
-        self.model=os.environ.get('APERTUS_MODEL','swiss-ai/Apertus-8B-Instruct-2509')
+        self.model=os.environ.get('APERTUS_MODEL','swiss-ai/Apertus-v1.5-70B')
         self.endpoint=os.environ.get('APERTUS_ENDPOINT','')
         self.key=os.environ.get('APERTUS_API_KEY','')
         self.timeout=min(7,max(.1,float(os.environ.get('PROVIDER_TIMEOUT','6'))))
@@ -97,10 +98,15 @@ class Provider:
         if self.mode!='fake':
             parsed=urlparse(self.endpoint);allow=set(os.environ.get('APERTUS_ALLOWED_HOSTS','').split(','))
             if not self.model or parsed.hostname not in allow or parsed.username or parsed.fragment or not (parsed.scheme=='https' or parsed.scheme=='http' and parsed.hostname in {'localhost','127.0.0.1','::1'}):raise RuntimeError('Configure a fixed trusted endpoint, model and host allowlist')
-    def decide(self,o):
+    def decide(self,o,correction=None,timeout=None):
         if self.mode=='fake':
             return {'schema_version':1,'request_id':o['request_id'],'wave_index':o['wave_index'],'groups':[{'enemy_id':'emberling','spawn_id':'S_NORTH','route_id':'NORTH','count':4,'start_seconds':0,'interval_seconds':2}],'conditions':[],'announcement':'Gateway fake provider: northern approach.'}
-        body={'model':self.model,'stream':False,'messages':[{'role':'system','content':PROMPT+'\nExact JSON schema:\n'+json.dumps(SCHEMA)},{'role':'user','content':json.dumps(o,separators=(',',':'))}]}
+        wave=o['wave_index']
+        constraints={'budget':[12,22,32][wave-1],'max_count':[12,18,24][wave-1],'schedule_window_seconds':[24,36,48][wave-1],'enemy_costs':{'emberling':1,'wind_runner':2,'brush_cluster':3},'gust_front_cost':4,'conditions_allowed':wave==3,'wave1_north_only':wave==1,'wave1_wind_runner_allowed':False}
+        guidance='\nService-owned legality constraints:\n'+json.dumps(constraints)
+        body={'model':self.model,'stream':False,'messages':[{'role':'system','content':PROMPT+'\nExact JSON schema:\n'+json.dumps(SCHEMA)+guidance},{'role':'user','content':json.dumps(o,separators=(',',':'))}]}
+        if correction:
+            body['messages'].extend([{'role':'assistant','content':json.dumps(correction['plan'])},{'role':'user','content':'Your plan failed validation: '+correction['reason']+'. Return a complete corrected JSON plan. Preserve legal tactics where possible. Enumerate spawn times internally, remove overlaps, and keep the final spawn inside the window.'}])
         if self.schema:body['response_format']={'type':'json_schema','json_schema':{'name':'forester_threat_plan','strict':True,'schema':SCHEMA}}
         if os.environ.get('APERTUS_SEND_TEMPERATURE')=='1':body['temperature']=.2
         if os.environ.get('APERTUS_SEND_MAX_TOKENS')=='1':body['max_tokens']=700
@@ -111,7 +117,7 @@ class Provider:
         class NoRedirect(urllib.request.HTTPRedirectHandler):
             def redirect_request(self,*args,**kwargs):return None
         try:
-            with urllib.request.build_opener(NoRedirect()).open(request,timeout=self.timeout) as response:
+            with urllib.request.build_opener(NoRedirect()).open(request,timeout=self.timeout if timeout is None else min(self.timeout,timeout)) as response:
                 raw=response.read(65537)
                 if len(raw)>65536:raise ValueError('response size')
                 envelope=strict_json(raw)
@@ -119,6 +125,9 @@ class Provider:
             if message.get('refusal') or not isinstance(message.get('content'),str):raise ValueError('refusal/content')
             return strict_json(message['content'])
         except (TimeoutError,socket.timeout):raise GatewayError(504,'provider timeout')
+        except urllib.error.HTTPError as e:
+            reasons={401:'CSCS API key rejected',403:'CSCS access denied; check key and model permissions',404:'CSCS model or endpoint not found',429:'CSCS rate or quota limit reached',400:'CSCS rejected the model request'}
+            raise GatewayError(502,reasons.get(e.code,'CSCS service error')+' (upstream HTTP '+str(e.code)+')')
         except urllib.error.URLError as e:
             if isinstance(e.reason,(TimeoutError,socket.timeout)):raise GatewayError(504,'provider timeout')
             raise GatewayError(502,'provider unavailable')
@@ -139,8 +148,19 @@ class Gateway:
         try:o=observation(strict_json(raw))
         except (ValueError,TypeError,KeyError,RecursionError):raise GatewayError(400,'invalid observation')
         started=time.monotonic()
-        try:return plan(self.provider.decide(o),o)
-        except (ValueError,TypeError,KeyError,RecursionError):raise GatewayError(502,'invalid provider plan')
+        try:
+            candidate=self.provider.decide(o)
+            try:return plan(candidate,o)
+            except ValueError as first_error:
+                remaining=self.provider.timeout-(time.monotonic()-started) if isinstance(self.provider,Provider) else 0
+                if not isinstance(self.provider,Provider) or self.provider.mode=='fake' or remaining<=.25:raise
+                logging.info('plan_correction request=%s reason=%s',o['request_id'],first_error)
+                corrected=self.provider.decide(o,correction={'plan':candidate,'reason':str(first_error)},timeout=remaining)
+                return plan(corrected,o)
+        except ValueError as error:
+            # Validator messages are fixed strings/field paths, never model-generated text.
+            raise GatewayError(502,'invalid provider plan: '+str(error))
+        except (TypeError,KeyError,RecursionError):raise GatewayError(502,'invalid provider plan: malformed structure')
         finally:logging.info('request=%s epoch=%s latency=%.3f',o['request_id'],o['epoch'],time.monotonic()-started)
 
 class Handler(BaseHTTPRequestHandler):
@@ -155,7 +175,9 @@ class Handler(BaseHTTPRequestHandler):
             raw=self.rfile.read(size)
             if len(raw)!=size:raise GatewayError(400,'truncated body')
             result=self.server.gateway.handle(self.headers.get('Authorization',''),raw)
-        except GatewayError as e:status,result=e.status,{'error':e.reason}
+        except GatewayError as e:
+            status,result=e.status,{'error':e.reason}
+            logging.warning('gateway_http=%s reason=%s',e.status,e.reason)
         except (TimeoutError,socket.timeout):status,result=408,{'error':'request timeout'}
         except Exception:status,result=500,{'error':'internal error'}
         raw=json.dumps(result,separators=(',',':')).encode();self.send_response(status);self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(raw)));self.end_headers();self.wfile.write(raw)

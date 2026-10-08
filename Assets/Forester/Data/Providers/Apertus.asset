@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Apertus
   m_EditorClassIdentifier: Forester.Presentation::Forester.Presentation.ProviderProfileSO
   settings:
-    Mode: 0
+    Mode: 2
     Endpoint: http://127.0.0.1:8000/v1/chat/completions
     Model: swiss-ai/Apertus-8B-Instruct-2509
     Timeout: 8

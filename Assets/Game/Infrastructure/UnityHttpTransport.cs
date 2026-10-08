@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 namespace RATF.Infrastructure {
     public sealed class UnityHttpTransport:IHttpTransport {
+        [Serializable] private sealed class GatewayFailure { public string error; }
         // Called on Unity's main thread. Task.Yield captures UnitySynchronizationContext.
         public async Task<string> PostAsync(string endpoint,string json,double timeout,string token,CancellationToken ct) {
             using(var request=new UnityWebRequest(endpoint,"POST")) {
@@ -34,6 +35,15 @@ namespace RATF.Infrastructure {
                 ct.ThrowIfCancellationRequested();
                 if(request.result!=UnityWebRequest.Result.Success) {
                     string error=request.responseCode==401?"Authentication failure":request.responseCode==429?"Rate limited":request.responseCode==404?"Model or endpoint missing":request.responseCode==504?"Gateway timeout":request.responseCode>0?"Provider HTTP failure "+request.responseCode:"Host unreachable or TLS failure";
+                    // Only expose the bounded JSON error field, never a raw HTML/provider response.
+                    if(request.downloadHandler.data!=null && request.downloadHandler.data.Length<=4096) {
+                        try {
+                            var failure=JsonUtility.FromJson<GatewayFailure>(request.downloadHandler.text);
+                            if(failure!=null && !string.IsNullOrWhiteSpace(failure.error) && failure.error.Length<=240)
+                                error+=" — "+failure.error.Replace("\n"," ").Replace("\r"," ");
+                        } catch(ArgumentException) { }
+                    }
+                    if(request.responseCode==401)error+=". Copy the session token from the currently running gateway";
                     throw new InvalidOperationException(error);
                 }
                 if(request.downloadHandler.data.Length>65536)throw new FormatException("Response too large");

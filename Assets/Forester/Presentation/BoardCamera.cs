@@ -9,7 +9,7 @@ namespace Forester.Presentation {
         LevelDefinitionSO configuration;
         Camera cameraView;
         Vector3 home, target, focus;
-        float yaw, pitch, distance, homeDistance, currentDistance, currentYaw, currentPitch;
+        float yaw, pitch, distance, homeDistance, currentDistance, currentYaw, currentPitch, framedAspect;
         bool orbiting, panning;
         public bool IsNavigating => orbiting || panning;
         public float Pitch => pitch;
@@ -25,18 +25,22 @@ namespace Forester.Presentation {
             cameraView.fieldOfView = level.fieldOfView;
             cameraView.orthographic = level.orthographic;
             home = level.origin + new Vector3((level.columns-1)*level.cellSize*.5f,0,(level.rows-1)*level.cellSize*.5f);
-            var rotation = Quaternion.Euler(level.pitch, level.yaw, 0);
-            var extents = new Vector3(level.columns*level.cellSize*.5f, 2, level.rows*level.cellSize*.5f);
-            float tangent = Mathf.Tan(level.fieldOfView*.5f*Mathf.Deg2Rad);
-            homeDistance = 1;
-            for(int x=-1;x<=1;x+=2) for(int y=-1;y<=1;y+=2) for(int z=-1;z<=1;z+=2) {
-                var point = Quaternion.Inverse(rotation)*Vector3.Scale(extents,new Vector3(x,y,z));
-                homeDistance = Mathf.Max(homeDistance, Mathf.Abs(point.y)/tangent-point.z, Mathf.Abs(point.x)/(tangent*cameraView.aspect)-point.z);
-            }
-            homeDistance *= 1.18f;
+            homeDistance = FitDistance();
+            framedAspect = cameraView.aspect;
             cameraView.nearClipPlane = .1f;
             cameraView.farClipPlane = 300;
             ResetView();
+        }
+        float FitDistance() {
+            var rotation = Quaternion.Euler(configuration.pitch, configuration.yaw, 0);
+            var extents = new Vector3(configuration.columns*configuration.cellSize*.5f, 2, configuration.rows*configuration.cellSize*.5f);
+            float tangent = Mathf.Tan(configuration.fieldOfView*.5f*Mathf.Deg2Rad);
+            float fitted = 1;
+            for(int x=-1;x<=1;x+=2) for(int y=-1;y<=1;y+=2) for(int z=-1;z<=1;z+=2) {
+                var point = Quaternion.Inverse(rotation)*Vector3.Scale(extents,new Vector3(x,y,z));
+                fitted = Mathf.Max(fitted, Mathf.Abs(point.y)/tangent-point.z, Mathf.Abs(point.x)/(tangent*cameraView.aspect)-point.z);
+            }
+            return fitted*1.18f;
         }
         public void ResetView() {
             if(!configuration) return;
@@ -59,6 +63,14 @@ namespace Forester.Presentation {
         }
         void Update() {
             if(!configuration) return;
+            if(Mathf.Abs(cameraView.aspect-framedAspect)>.01f) {
+                float next=FitDistance();
+                float ratio=next/homeDistance;
+                distance*=ratio;
+                currentDistance*=ratio;
+                homeDistance=next;
+                framedAspect=cameraView.aspect;
+            }
             var mouse = Mouse.current;
             var keyboard = Keyboard.current;
             bool over = mouse != null && OverUI(mouse.position.ReadValue());
