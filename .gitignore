@@ -112,3 +112,18 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Ignore all Markdown files
+*.md
+
+# Keep the main README
+!README.md
+
+
+# Local development caches and generated web exports
+.idea/
+__pycache__/
+*.py[cod]
+/Web/player/
+/Web/build_result.json
+/ProfilerCaptures/

@@ -25,13 +25,41 @@ namespace Forester.Composition {
                 Validate();
                 presenter.Settings=provider.settings.Copy();
                 presenter.boardCamera.GetComponent<BoardCamera>()?.Frame(level);
+#if UNITY_WEBGL && !UNITY_EDITOR
+                StartCoroutine(InitializeWeb());
+#else
                 presenter.Initialize(Create,Probe);
+#endif
             }
             catch(Exception e) {
                 Debug.LogError("FORESTER_AUTHORING_ERROR "+e.Message);
                 enabled=false;
             }
         }
+#if UNITY_WEBGL && !UNITY_EDITOR
+        [Serializable] sealed class WebConfiguration {
+            public string mode,session_token,model;
+        }
+        System.Collections.IEnumerator InitializeWeb() {
+            var origin=new Uri(UnityEngine.Application.absoluteURL);
+            using(var request=UnityEngine.Networking.UnityWebRequest.Get(new Uri(origin,"/api/config").AbsoluteUri)) {
+                request.timeout=5;
+                yield return request.SendWebRequest();
+                presenter.Settings.Mode=ProviderMode.Scripted;
+                if(request.result==UnityEngine.Networking.UnityWebRequest.Result.Success) {
+                    var configuration=UnityEngine.JsonUtility.FromJson<WebConfiguration>(request.downloadHandler.text);
+                    if(configuration!=null&&configuration.mode=="RemoteApertus") {
+                        presenter.Settings.Mode=ProviderMode.RemoteApertus;
+                        presenter.Settings.Endpoint=new Uri(origin,"/forester/plan").AbsoluteUri;
+                        presenter.Settings.SessionToken=configuration.session_token;
+                        presenter.Settings.Model=configuration.model;
+                    }
+                }
+                else Debug.LogWarning("Forester server configuration unavailable; starting offline.");
+            }
+            presenter.Initialize(Create,Probe);
+        }
+#endif
         ProviderOptions Options(ProviderSettings s)=>new ProviderOptions {
             Endpoint=s.Endpoint,Model=s.Model,Timeout=Math.Max(.1,Math.Min(30,s.Timeout)),Schema=provider.planSchema.text,SessionToken=s.SessionToken,VerifiedSchemaOutput=s.VerifiedSchemaOutput,SendTemperature=s.SendTemperature,SendMaxTokens=s.SendMaxTokens
         };
